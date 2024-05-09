@@ -15,6 +15,7 @@ import {
 
 class ScreenshotRequest {
     encoding: 'jpg' | 'png' | 'webp';
+    imageName: string;
     quality: number;
     headers: any;
 
@@ -190,7 +191,7 @@ class ScreenshotUI {
 
         const getFormData = () => {
             const formData = new FormData();
-            formData.append(request.targetField, dataURItoBlob(imageURL), `screenshot.${request.encoding}`);
+            formData.append(request.targetField, dataURItoBlob(imageURL), `${request.imageName}.${request.encoding}`);
 
             return formData;
         };
